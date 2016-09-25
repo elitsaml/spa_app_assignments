@@ -10,22 +10,12 @@
 
     $scope.checkItems = function () {
 
-      if ($scope.lunchItems==null){
+      if ( ! $scope.lunchItems){
         $scope.lunchMessage =  "Please enter data first";
         return;
       }
 
-      var lItems = $scope.lunchItems.trim().split(',');
-
-      if (lItems.length <= 0 || ! lItems[0]) {
-        $scope.lunchMessage =  "Please enter data first";
-        return;
-      }
-      if (lItems.length <= 3) {
-        $scope.lunchMessage = "Enjoy!";
-        return;
-      }
-      $scope.lunchMessage = "Too much!";
+      $scope.lunchMessage = $scope.lunchItems.trim().split(',').length <= 3 ?  "Enjoy!" : "Too much!";
     }
 
   }
